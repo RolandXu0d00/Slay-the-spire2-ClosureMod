@@ -33,7 +33,3 @@ dotnet publish ClosureMod.csproj -c Release
 ```powershell
 dotnet build ClosureMod.csproj -c Release
 ```
-
-## 说明
-
-本上传包已移除本地日志、开发笔记、图片处理脚本和 `.godot` 生成目录，不包含 API Key、个人路径或对话记录。
