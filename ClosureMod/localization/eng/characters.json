@@ -1,0 +1,16 @@
+{
+  "CLOSUREMOD-CLOSURE.title": "Closure",
+  "CLOSUREMOD-CLOSURE.description": "Rhodes Island's engineer and commander. Deploys Tactical Points to fight, and is willing to overdraw energy for a burst of power.",
+  "CLOSUREMOD-CLOSURE.titleObject": "Closure",
+  "CLOSUREMOD-CLOSURE.pronounObject": "her",
+  "CLOSUREMOD-CLOSURE.possessiveAdjective": "her",
+  "CLOSUREMOD-CLOSURE.pronounPossessive": "her",
+  "CLOSUREMOD-CLOSURE.pronounSubject": "she",
+  "CLOSUREMOD-CLOSURE.goldMonologue": "Hmm, the budget's over again.",
+  "CLOSUREMOD-CLOSURE.eventDeathPrevention": "Tsk. Looks like I'll need a full overhaul.",
+  "CLOSUREMOD-CLOSURE.aromaPrinciple": "...",
+  "CLOSUREMOD-CLOSURE.cardsModifierTitle": "Closure Cards",
+  "CLOSUREMOD-CLOSURE.cardsModifierDescription": "Closure's cards now appear in rewards and shops.",
+  "CLOSUREMOD-CLOSURE.banter.alive.endTurnPing": "Tactical Points in position. Let's wrap this up.",
+  "CLOSUREMOD-CLOSURE.banter.dead.endTurnPing": "..."
+}

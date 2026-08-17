@@ -1,0 +1,11 @@
+<Project>
+    <!--
+      本地 Godot 路径不要写进公开上传包。
+      复制 local.props.example 为 local.props，并把 GodotPath 改成你自己的路径。
+    -->
+    <Import Project="local.props" Condition="Exists('local.props')" />
+
+    <PropertyGroup>
+        <GodotPath Condition="'$(GodotPath)' == ''"></GodotPath>
+    </PropertyGroup>
+</Project>

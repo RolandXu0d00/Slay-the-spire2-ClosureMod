@@ -1,0 +1,16 @@
+{
+  "CLOSUREMOD-CLOSURE.title": "可露希尔",
+  "CLOSUREMOD-CLOSURE.description": "罗德岛的工程师与指挥官。擅长部署“战术点”进行战斗，也敢于透支能量换取爆发。",
+  "CLOSUREMOD-CLOSURE.titleObject": "可露希尔",
+  "CLOSUREMOD-CLOSURE.pronounObject": "她",
+  "CLOSUREMOD-CLOSURE.possessiveAdjective": "她的",
+  "CLOSUREMOD-CLOSURE.pronounPossessive": "她的",
+  "CLOSUREMOD-CLOSURE.pronounSubject": "她",
+  "CLOSUREMOD-CLOSURE.goldMonologue": "……经费又超支了。",
+  "CLOSUREMOD-CLOSURE.eventDeathPrevention": "……啧，看来这次要返厂维修了。",
+  "CLOSUREMOD-CLOSURE.aromaPrinciple": "……",
+  "CLOSUREMOD-CLOSURE.cardsModifierTitle": "可露希尔卡牌",
+  "CLOSUREMOD-CLOSURE.cardsModifierDescription": "可露希尔的卡牌现在会出现在奖励和商店中。",
+  "CLOSUREMOD-CLOSURE.banter.alive.endTurnPing": "战术点就位，该结束了。",
+  "CLOSUREMOD-CLOSURE.banter.dead.endTurnPing": "……"
+}

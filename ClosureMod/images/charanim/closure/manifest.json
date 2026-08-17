@@ -1,0 +1,71 @@
+{
+  "size": 640,
+  "scale": 1.4893617021276595,
+  "tx": 403.40425531914894,
+  "ty": 600,
+  "animations": {
+    "Idle": {
+      "fps": 15,
+      "frames": 120,
+      "duration": 8,
+      "loop": true,
+      "feetY": 602
+    },
+    "Attack_Begin": {
+      "fps": 20,
+      "frames": 4,
+      "duration": 0.20000000298023224,
+      "loop": false,
+      "feetY": 602
+    },
+    "Attack_Loop": {
+      "fps": 20,
+      "frames": 20,
+      "duration": 1,
+      "loop": true,
+      "feetY": 603
+    },
+    "Attack_End": {
+      "fps": 20,
+      "frames": 5,
+      "duration": 0.2666666805744171,
+      "loop": false,
+      "feetY": 602
+    },
+    "Skill_3_Begin": {
+      "fps": 20,
+      "frames": 10,
+      "duration": 0.5,
+      "loop": false,
+      "feetY": 604
+    },
+    "Skill_3_Loop": {
+      "fps": 20,
+      "frames": 10,
+      "duration": 0.5,
+      "loop": true,
+      "feetY": 603
+    },
+    "Skill_3_End": {
+      "fps": 20,
+      "frames": 7,
+      "duration": 0.3333333432674408,
+      "loop": false,
+      "feetY": 603
+    },
+    "Die": {
+      "fps": 20,
+      "frames": 20,
+      "duration": 1,
+      "loop": false,
+      "feetY": 605
+    },
+    "Start": {
+      "fps": 20,
+      "frames": 20,
+      "duration": 1,
+      "loop": false,
+      "feetY": 639
+    }
+  }
+}

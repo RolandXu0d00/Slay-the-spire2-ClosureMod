@@ -1,0 +1,14 @@
+﻿{
+  "id": "ClosureMod",
+  "name": "ClosureMod",
+  "author": "RolandXu",
+  "description": "可露希尔角色模组：召唤战术点，能量可以透支（缺费）。",
+  "version": "v0.1.0",
+  "min_game_version": "0.107.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [
+    {"id": "BaseLib", "min_version": "3.4.0"}
+  ],
+  "affects_gameplay": true
+}

@@ -1,0 +1,6 @@
+<Project>
+    <PropertyGroup>
+        <!-- 改成你的 Godot 4.5.1 mono 编辑器完整路径，例如 D:/Godot/Godot_v4.5.1-stable_mono_win64/Godot_v4.5.1-stable_mono_win64.exe -->
+        <GodotPath>C:/path/to/Godot_v4.5.1-stable_mono_win64.exe</GodotPath>
+    </PropertyGroup>
+</Project>

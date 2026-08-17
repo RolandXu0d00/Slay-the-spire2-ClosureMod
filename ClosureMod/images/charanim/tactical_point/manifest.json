@@ -1,0 +1,29 @@
+{
+  "size": 1024,
+  "scale": 3.492063492063492,
+  "tx": 518.984126984127,
+  "ty": 931.047619047619,
+  "animations": {
+    "Idle": {
+      "fps": 20,
+      "frames": 27,
+      "duration": 1.3333333730697632,
+      "loop": true,
+      "feetY": 958
+    },
+    "Die": {
+      "fps": 20,
+      "frames": 20,
+      "duration": 1,
+      "loop": false,
+      "feetY": 1007
+    },
+    "Start": {
+      "fps": 20,
+      "frames": 20,
+      "duration": 1,
+      "loop": false,
+      "feetY": 1023
+    }
+  }
+}
