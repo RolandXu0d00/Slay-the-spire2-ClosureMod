@@ -17,7 +17,7 @@ public sealed class TacticalPointAttackPower : ClosurePower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
 
-    public override async Task AfterSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
+    public override async Task BeforeSideTurnEnd(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
     {
         //只在玩家回合结束时结算（怪物还没行动）
         if (side != CombatSide.Player) return;
@@ -41,7 +41,7 @@ public sealed class TacticalPointAttackPower : ClosurePower
         {
             Creature? target = player.RunState.Rng.CombatTargets.NextItem(enemies);
             if (target == null) continue;
-            await CreatureCmd.Damage(choiceContext, target, damage, ValueProp.Move, Owner);
+            await CreatureCmd.Damage(choiceContext, target, damage, ValueProp.Move, playerCreature);
         }
     }
 }

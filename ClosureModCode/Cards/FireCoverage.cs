@@ -12,7 +12,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class FireCoverage : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("PerPoint", 5m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("PerPoint", 6m)];
 
     public FireCoverage() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {

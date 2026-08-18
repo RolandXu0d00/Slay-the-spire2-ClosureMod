@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 namespace ClosureMod.ClosureModCode.Powers;
 
 /// <summary>
-/// 能源回收：回合结束时每透支1点能量，抽1张卡。
+/// 能源回收：回合结束时若透支，抽固定数量的牌；不再随透支深度成倍增长。
 /// </summary>
 public sealed class EnergyRecoveryPower : ClosurePower
 {
@@ -20,7 +20,7 @@ public sealed class EnergyRecoveryPower : ClosurePower
         int energy = player.PlayerCombatState.Energy;
         if (energy < 0)
         {
-            await CardPileCmd.Draw(choiceContext, -energy * Amount, player, true);
+            await CardPileCmd.Draw(choiceContext, Amount, player, true);
         }
     }
 }

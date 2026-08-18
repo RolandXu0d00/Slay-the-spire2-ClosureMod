@@ -15,6 +15,12 @@ public sealed class TacticalPointInterceptorPower : ClosurePower
     public override PowerStackType StackType => PowerStackType.Single;
     public override bool ShouldPlayVfx => false;
 
+    /// <summary>
+    /// 记录本次伤害链第一个接手的战术点。由 ModifyUnblockedDamageTarget 设置，
+    /// 由 TacticalPointLoseHpPatch 在溢出伤害结算完后清空。
+    /// </summary>
+    internal static Creature? ChainLead;
+
     public override Creature ModifyUnblockedDamageTarget(Creature target, decimal _, ValueProp props, Creature? __)
     {
         MainFile.Logger.Info($"[拦截] 调用: 目标={target.Name}, 持有者={Owner.Name}, 攻击判定={props.IsPoweredAttack()}");
@@ -48,6 +54,7 @@ public sealed class TacticalPointInterceptorPower : ClosurePower
             return target;
         }
         MainFile.Logger.Info($"[拦截] 转移伤害到战术点: {Owner.Name}");
+        ChainLead = Owner;
         return Owner;
     }
 }

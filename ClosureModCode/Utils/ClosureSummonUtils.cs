@@ -10,7 +10,7 @@ namespace ClosureMod.ClosureModCode.Utils;
 public static class ClosureSummonUtils
 {
     public const int MaxTacticalPoints = 3;
-    public const int DefaultHp = 5;
+    public const int DefaultHp = 8;
     public const int DefaultAttack = 2;
 
     public static int AliveTacticalPointCount(Player player)

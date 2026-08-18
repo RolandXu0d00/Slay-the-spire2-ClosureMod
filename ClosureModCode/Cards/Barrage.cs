@@ -12,7 +12,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class Barrage : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 5m), new DynamicVar("PerPoint", 1m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 7m), new DynamicVar("PerPoint", 2m)];
 
     public Barrage() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
@@ -29,6 +29,6 @@ public sealed class Barrage : ClosureCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["Damage"].UpgradeValueBy(2m);
+        base.DynamicVars["Damage"].UpgradeValueBy(3m);
     }
 }

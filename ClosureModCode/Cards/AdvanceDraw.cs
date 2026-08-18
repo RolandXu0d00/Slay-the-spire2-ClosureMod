@@ -13,6 +13,8 @@ public sealed class AdvanceDraw : ClosureCard
 {
     protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Draw", 2m), new DynamicVar("Debt", 1m)];
 
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
+
     public AdvanceDraw() : base(0, CardType.Skill, CardRarity.Common, TargetType.None)
     {
     }

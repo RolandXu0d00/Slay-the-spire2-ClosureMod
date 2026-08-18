@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class HighVoltage : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 12m), new DynamicVar("PerDebt", 3m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 14m), new DynamicVar("PerDebt", 3m)];
 
     public HighVoltage() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {

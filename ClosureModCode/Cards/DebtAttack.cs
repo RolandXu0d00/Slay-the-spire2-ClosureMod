@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class DebtAttack : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 8m), new DynamicVar("DebtBonus", 4m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 10m), new DynamicVar("DebtBonus", 6m)];
 
     public DebtAttack() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {

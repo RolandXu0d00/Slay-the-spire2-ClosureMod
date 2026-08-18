@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 namespace ClosureMod.ClosureModCode.Powers;
 
 /// <summary>
-/// 能源超载：透支上限+1；回合结束时若处于透支状态，每个战术点攻击力+1。
+/// 能源超载：透支上限 = Amount；回合结束时若处于透支状态，每个战术点攻击力固定+1（不随层数增长）。
 /// </summary>
 public sealed class EnergyOverloadPower : ClosurePower
 {

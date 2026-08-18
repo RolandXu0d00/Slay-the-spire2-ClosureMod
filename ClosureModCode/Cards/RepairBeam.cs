@@ -12,7 +12,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class RepairBeam : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 6m), new DynamicVar("Heal", 3m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 8m), new DynamicVar("Heal", 5m)];
 
     public RepairBeam() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
@@ -33,7 +33,7 @@ public sealed class RepairBeam : ClosureCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["Damage"].UpgradeValueBy(2m);
-        base.DynamicVars["Heal"].UpgradeValueBy(1m);
+        base.DynamicVars["Damage"].UpgradeValueBy(3m);
+        base.DynamicVars["Heal"].UpgradeValueBy(2m);
     }
 }

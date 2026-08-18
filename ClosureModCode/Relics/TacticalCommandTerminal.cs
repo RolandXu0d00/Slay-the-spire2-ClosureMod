@@ -60,13 +60,16 @@ public class TacticalCommandTerminal : ClosureRelic
     }
 
     /// <summary>
-    /// 计算当前透支上限：基础值（终端遗物）+ 能量枢纽（每个战术点+1）+ 能源超载。
+    /// 计算当前透支上限：基础值（终端遗物）+ 能量枢纽（有战术点时固定增加）+ 能源超载。
     /// </summary>
     public static int GetMaxDebt(Player player)
     {
         int maxDebt = player.Relics.OfType<TacticalCommandTerminal>().FirstOrDefault()?.MaxDebt ?? 2;
-        int hubPerPoint = (int)player.Creature.Powers.OfType<Powers.EnergyHubPower>().Sum(p => p.Amount);
-        maxDebt += hubPerPoint * ClosureSummonUtils.AliveTacticalPointCount(player);
+        int hubLimit = (int)player.Creature.Powers.OfType<Powers.EnergyHubPower>().Sum(p => p.Amount);
+        if (ClosureSummonUtils.AliveTacticalPointCount(player) > 0)
+        {
+            maxDebt += hubLimit;
+        }
         maxDebt += (int)player.Creature.Powers.OfType<Powers.EnergyOverloadPower>().Sum(p => p.Amount);
         return maxDebt;
     }

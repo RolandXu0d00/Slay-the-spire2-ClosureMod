@@ -12,7 +12,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class TacticalAssault : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 12m), new DynamicVar("PerPoint", 4m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 14m), new DynamicVar("PerPoint", 5m)];
 
     public TacticalAssault() : base(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
     {

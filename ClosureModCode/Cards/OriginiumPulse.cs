@@ -13,7 +13,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class OriginiumPulse : ClosureCard, ITomeCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 18m), new DynamicVar("PerDebt", 3m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 24m), new DynamicVar("PerDebt", 5m)];
 
     public OriginiumPulse() : base(2, CardType.Attack, CardRarity.Ancient, TargetType.AnyEnemy)
     {
@@ -32,7 +32,7 @@ public sealed class OriginiumPulse : ClosureCard, ITomeCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["Damage"].UpgradeValueBy(6m);
+        base.DynamicVars["Damage"].UpgradeValueBy(8m);
         base.DynamicVars["PerDebt"].UpgradeValueBy(1m);
     }
 }

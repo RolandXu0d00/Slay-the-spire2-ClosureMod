@@ -13,7 +13,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class TacticalDirective : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 3m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 4m)];
 
     protected override HashSet<CardTag> CanonicalTags => [CardTag.Strike];
 
@@ -31,6 +31,6 @@ public sealed class TacticalDirective : ClosureCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["Damage"].UpgradeValueBy(2m);
+        base.DynamicVars["Damage"].UpgradeValueBy(3m);
     }
 }

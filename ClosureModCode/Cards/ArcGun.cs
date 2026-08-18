@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class ArcGun : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 6m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 9m)];
 
     public ArcGun() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {

@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class DefendClosure : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new BlockVar(6m, ValueProp.Move)];
+    protected override List<DynamicVar> CanonicalVars => [new BlockVar(5m, ValueProp.Move)];
 
     public DefendClosure() : base(1, CardType.Skill, CardRarity.Basic, TargetType.None)
     {
@@ -26,6 +26,6 @@ public sealed class DefendClosure : ClosureCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars.Block.UpgradeValueBy(3m);
+        base.DynamicVars.Block.UpgradeValueBy(4m);
     }
 }

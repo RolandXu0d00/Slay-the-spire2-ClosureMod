@@ -1,6 +1,7 @@
 using ClosureMod.ClosureModCode.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace ClosureMod.ClosureModCode.Cards;
 
@@ -9,15 +10,21 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class DoubleDeploy : ClosureCard
 {
-    public DoubleDeploy() : base(2, CardType.Skill, CardRarity.Rare, TargetType.None)
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("HP", ClosureSummonUtils.DefaultHp)];
+
+    public DoubleDeploy() : base(1, CardType.Skill, CardRarity.Rare, TargetType.None)
     {
     }
 
-    protected override int CanonicalEnergyCost => IsUpgraded ? 1 : 2;
-
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, ClosureSummonUtils.DefaultHp, ClosureSummonUtils.DefaultAttack, this);
-        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, ClosureSummonUtils.DefaultHp, ClosureSummonUtils.DefaultAttack, this);
+        int hp = (int)base.DynamicVars["HP"].BaseValue;
+        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, hp, ClosureSummonUtils.DefaultAttack, this);
+        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, hp, ClosureSummonUtils.DefaultAttack, this);
+    }
+
+    protected override void OnUpgrade()
+    {
+        base.DynamicVars["HP"].UpgradeValueBy(2m);
     }
 }

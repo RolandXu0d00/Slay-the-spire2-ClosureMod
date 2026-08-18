@@ -7,11 +7,11 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 namespace ClosureMod.ClosureModCode.Cards;
 
 /// <summary>
-/// 能量枢纽：能力。场上每有1个战术点，透支上限+1。指挥流终端金卡。
+/// 能量枢纽：能力。场上有战术点时，透支上限提高固定数值。
 /// </summary>
 public sealed class EnergyHub : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("PerPoint", 1m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Limit", 1m)];
 
     public EnergyHub() : base(1, CardType.Power, CardRarity.Rare, TargetType.None)
     {
@@ -19,11 +19,11 @@ public sealed class EnergyHub : ClosureCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await PowerCmd.Apply<EnergyHubPower>(choiceContext, Owner.Creature, base.DynamicVars["PerPoint"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<EnergyHubPower>(choiceContext, Owner.Creature, base.DynamicVars["Limit"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["PerPoint"].UpgradeValueBy(1m);
+        base.DynamicVars["Limit"].UpgradeValueBy(1m);
     }
 }

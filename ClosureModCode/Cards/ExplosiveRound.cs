@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class ExplosiveRound : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 16m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 20m)];
 
     public ExplosiveRound() : base(2, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {

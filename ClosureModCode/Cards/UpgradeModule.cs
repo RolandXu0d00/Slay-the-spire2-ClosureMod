@@ -12,7 +12,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class UpgradeModule : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Attack", 1m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Attack", 2m)];
 
     public UpgradeModule() : base(1, CardType.Skill, CardRarity.Uncommon, CustomTargetType.Pet)
     {

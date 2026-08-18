@@ -1,8 +1,8 @@
 ﻿{
     "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL.title":  "Tactical Command Terminal",
     "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL.flavor":  "Rhodes Island quality. Reliable.",
-    "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL.description":  "At the start of combat, deploy 1 Tactical Point (5 HP / 2 ATK).\\nYou may overdraw Energy (down to -2): if you end your turn in debt, lose 1 Energy at the start of next turn.",
+    "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL.description":  "At the start of combat, deploy 1 Tactical Point (8 HP / 2 ATK).\\nYou may overdraw Energy (down to -2): if you end your turn in debt, lose 1 Energy at the start of next turn.",
     "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.title":  "Tactical Command Terminal+",
     "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.flavor":  "A gift from Orobas. Performance pushed further.",
-    "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.description":  "At the start of combat, deploy 1 Tactical Point (8 HP / 2 ATK).\\nYou may overdraw Energy (down to -3): if you end your turn in debt, lose 1 Energy at the start of next turn."
+    "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.description":  "At the start of combat, deploy 1 Tactical Point (12 HP / 2 ATK).\\nYou may overdraw Energy (down to -3): if you end your turn in debt, lose 1 Energy at the start of next turn."
 }

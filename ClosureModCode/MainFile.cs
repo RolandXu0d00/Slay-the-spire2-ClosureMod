@@ -20,5 +20,9 @@ public partial class MainFile : Node
         Harmony harmony = new(ModId);
 
         harmony.PatchAll();
+
+        // 旧版游戏（v0.107.x）持久糖果 + 精英战 + 单稀有度能力卡池会导致结算崩溃；
+        // 新版游戏已修复，此补丁只会在旧版存在对应方法时生效。
+        Patches.LastingCandyCrashFixPatch.TryApply(harmony);
     }
 }

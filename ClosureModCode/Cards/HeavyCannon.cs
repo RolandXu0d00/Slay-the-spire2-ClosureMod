@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class HeavyCannon : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 24m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 28m)];
 
     public HeavyCannon() : base(3, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
     {
