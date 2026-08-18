@@ -80,3 +80,82 @@ godot --headless --path <repo> --export-pack "BasicExport" <out>.pck
 - ffmpeg（`_tools\ffmpeg\ffmpeg-9.0.1-essentials_build\bin\`，Node 走 Clash 代理下载）
 - 帧差异分析 `_tools\analyze_frames.js`、包围盒分析 `_tools\analyze_pixels.js`、SpriteFrames 生成 `_tools\gen_spriteframes.js`
 - webm 源文件：`E:\资料\ClosureMod\可露希尔-默认-基建-Sit-x1.webm`（未入库，如需入库可放入 `ClosureMod/images/restsite/`）
+
+---
+
+## 八、作者侧项目上下文（2026-08-18 更新）
+
+### 1. 项目现状
+
+- 本项目是《杀戮尖塔 2》可露希尔自定义角色 MOD，核心机制为“战术点”召唤物与能量“透支”。
+- 当前已有 25 张可玩卡牌、2 件遗物、11 种能力，并具备中英文本地化。
+- 战术点拥有独立生命、回合结束自动攻击、替玩家挡刀、常显血条和最多 3 个单位等功能。
+- 多战术点拦截链已修复：玩家格挡先承伤，随后战术点按存活顺序依次承接，最后的剩余伤害才由玩家承担。
+- 透支基础上限为 2，升级初始遗物后为 3，卡牌和能力可进一步提高上限。
+- 角色及战术点逐帧动画、角色死亡定格和地图标记等功能已有实现。
+- 已适配游戏 v0.111.0 的 `CreatureCmd.Damage` 新签名。
+- 已加入旧版游戏中“持久糖果 + 单一稀有度卡池”导致结算崩溃的兼容补丁。
+
+### 2. 仓库与本地目录关系
+
+作者侧工作区为：
+
+```text
+C:\Users\28393\Documents\ChatGPT\杀戮尖塔mod制作
+```
+
+重要目录：
+
+| 用途 | 路径 |
+|---|---|
+| 日常开发源码 | `C:\Users\28393\Documents\ChatGPT\杀戮尖塔mod制作\ClosureMod` |
+| 当前 Git 仓库 | `C:\Users\28393\Documents\ChatGPT\杀戮尖塔mod制作\ClosureMod_上传版_20260816` |
+| 工坊上传包 | `C:\Users\28393\Documents\ChatGPT\杀戮尖塔mod制作\ClosureMod_工坊上传_20260816` |
+| 完整历史交接 | `C:\Users\28393\Documents\ChatGPT\杀戮尖塔mod制作\项目交接总结.md` |
+
+注意：作者侧工作区根目录和日常开发目录 `ClosureMod` 本身不是 Git 仓库。Git 命令必须在 `ClosureMod_上传版_20260816` 中执行。将仓库更新同步到日常开发目录之前，必须先比较两边差异，以免覆盖尚未进入 Git 的作者侧改动。
+
+### 3. 最近一次 Git 同步
+
+2026-08-18 已执行：
+
+```powershell
+git pull origin main --rebase
+git push
+```
+
+同步结果：
+
+- 当前分支为 `main`。
+- `origin` 为 `https://github.com/RolandXu0d00/Slay-the-spire2-ClosureMod.git`。
+- 拉取前工作区干净，因此没有创建“本地暂存”提交。
+- 从 `e58b72d` 快进到 `b20a071`，没有发生冲突。
+- 推送结果为 `Everything up-to-date`，当时本地 `main` 与 `origin/main` 完全同步。
+- 仓库没有配置朋友 Fork 的额外 remote；若未来从朋友 Fork 拉取，需要先取得并明确配置其仓库地址。
+
+同步后的三个最新提交为：
+
+```text
+b20a071 添加 ganbing_commit.md：休息点立绘改动说明（供作者侧 AI 读取）
+185081a 休息点立绘：可露希尔坐姿循环动画（Sit webm 抽帧 119 帧 @15fps，AnimatedSprite2D 自动播放）
+e58b72d 平衡卡牌并加强双重部署
+```
+
+### 4. 作者侧构建方式
+
+```powershell
+dotnet publish "C:\Users\28393\Documents\ChatGPT\杀戮尖塔mod制作\ClosureMod\ClosureMod.csproj" -c Release
+```
+
+- 发布会写入 `D:\steam\steamapps\common\Slay the Spire 2\mods\ClosureMod`，通常需要提权，并且应先退出游戏。
+- 新增卡牌、能力、遗物或药水时，应先补齐中英文 localization JSON，否则本地化分析器可能导致编译失败。
+- 图片或动画变更后，应先让 Godot 重新导入，再发布，确保资源进入 PCK。
+- 不要整库扫描 `sts2ncv` 或 `sts2src`，也不要把 `.dll`、`.pck`、`.skel` 当作文本读取。
+- Git rebase 若出现冲突，立即停止并用 `git diff --name-only --diff-filter=U` 列出冲突文件，不要自动解决。
+
+### 5. 建议后续验证
+
+1. 比较 Git 仓库与作者侧日常开发目录的差异，再安全同步本次休息点动画改动。
+2. 构建并进入游戏验证休息点坐姿动画的资源路径、位置、缩放及循环播放。
+3. 多人模式下验证奇数槽位朝向；当前 `FlipX()` 不会自动镜像 `AnimatedSprite2D`，这是已知小瑕疵。
+4. 继续处理创意工坊首次上传、药水、能量图标及长局数值平衡测试。
