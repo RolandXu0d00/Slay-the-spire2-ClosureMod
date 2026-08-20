@@ -24,7 +24,7 @@ public sealed class TacticalAssault : ClosureCard
     {
         decimal dmg = base.DynamicVars["Damage"].BaseValue
             + ClosureSummonUtils.AliveTacticalPointCount(Owner) * base.DynamicVars["PerPoint"].BaseValue;
-        await CreatureCmd.Damage(choiceContext, cardPlay.Target!, dmg, ValueProp.Move, this);
+        await ClosureAttackUtils.Attack(choiceContext, cardPlay.Target!, dmg, this);
     }
 
     protected override void OnUpgrade()

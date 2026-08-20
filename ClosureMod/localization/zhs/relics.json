@@ -4,5 +4,5 @@
     "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL.description":  "战斗开始时，部署1个战术点（8生命/2攻击）。\\n可透支能量（最多-2）：回合结束时处于透支状态，下回合能量-1。",
     "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.title":  "战术指挥终端·改",
     "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.flavor":  "欧洛巴斯之触的馈赠，性能更进一步。",
-    "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.description":  "战斗开始时，部署1个战术点（12生命/2攻击）。\\n可透支能量（最多-3）：回合结束时处于透支状态，下回合能量-1。"
+    "CLOSUREMOD-TACTICAL_COMMAND_TERMINAL_PLUS.description":  "战斗开始时，部署1个战术点（8生命/2攻击）。每当你透支1点能量，战术点本回合攻击力+2。\\n可透支能量（最多-3）：回合结束时处于透支状态，下回合能量-1。"
 }

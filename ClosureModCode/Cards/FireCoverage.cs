@@ -21,7 +21,7 @@ public sealed class FireCoverage : ClosureCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         decimal dmg = ClosureSummonUtils.AliveTacticalPointCount(Owner) * base.DynamicVars["PerPoint"].BaseValue;
-        await CreatureCmd.Damage(choiceContext, cardPlay.Target!, dmg, ValueProp.Move, this);
+        await ClosureAttackUtils.Attack(choiceContext, cardPlay.Target!, dmg, this);
     }
 
     protected override void OnUpgrade()

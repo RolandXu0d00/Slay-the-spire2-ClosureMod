@@ -1,4 +1,4 @@
-using MegaCrit.Sts2.Core.Commands;
+using ClosureMod.ClosureModCode.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class DebtAttack : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 10m), new DynamicVar("DebtBonus", 6m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 9m), new DynamicVar("DebtBonus", 4m)];
 
     public DebtAttack() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
     {
@@ -26,7 +26,7 @@ public sealed class DebtAttack : ClosureCard
         {
             dmg += base.DynamicVars["DebtBonus"].BaseValue;
         }
-        await CreatureCmd.Damage(choiceContext, cardPlay.Target!, dmg, ValueProp.Move, this);
+        await ClosureAttackUtils.Attack(choiceContext, cardPlay.Target!, dmg, this);
     }
 
     protected override void OnUpgrade()

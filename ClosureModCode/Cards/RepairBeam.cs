@@ -1,4 +1,5 @@
 using ClosureMod.ClosureModCode.Monsters;
+using ClosureMod.ClosureModCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -22,7 +23,7 @@ public sealed class RepairBeam : ClosureCard
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
-        await CreatureCmd.Damage(choiceContext, cardPlay.Target!, base.DynamicVars["Damage"].BaseValue, ValueProp.Move, this);
+        await ClosureAttackUtils.Attack(choiceContext, cardPlay.Target!, base.DynamicVars["Damage"].BaseValue, this);
         var point = Owner.PlayerCombatState?.Pets
             .FirstOrDefault(p => p.Monster is TacticalPoint && p.IsAlive);
         if (point != null)

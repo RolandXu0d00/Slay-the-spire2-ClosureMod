@@ -1,5 +1,5 @@
 using BaseLib.Abstracts;
-using MegaCrit.Sts2.Core.Commands;
+using ClosureMod.ClosureModCode.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -27,7 +27,7 @@ public sealed class OriginiumPulse : ClosureCard, ITomeCard
         {
             dmg += -energy * base.DynamicVars["PerDebt"].BaseValue;
         }
-        await CreatureCmd.Damage(choiceContext, cardPlay.Target!, dmg, ValueProp.Move, this);
+        await ClosureAttackUtils.Attack(choiceContext, cardPlay.Target!, dmg, this);
     }
 
     protected override void OnUpgrade()

@@ -35,7 +35,10 @@ internal static class TacticalPointPositioning
             NCreature? ownerNode = nodes.FirstOrDefault(n => n.Entity.Player == owner);
             if (ownerNode == null) continue;
 
-            var ownerPoints = points.Where(n => n.Entity.PetOwner == owner).ToList();
+            var petOrder = owner.PlayerCombatState?.Pets.ToList() ?? [];
+            var ownerPoints = points.Where(n => n.Entity.PetOwner == owner)
+                .OrderBy(n => petOrder.IndexOf(n.Entity))
+                .ToList();
             int index = Math.Max(0, ownerPoints.IndexOf(point));
 
             point.Position = ownerNode.Position + BaseOffset + Vector2.Right * (Spacing * index);

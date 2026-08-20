@@ -1,4 +1,5 @@
 using ClosureMod.ClosureModCode.Monsters;
+using ClosureMod.ClosureModCode.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -28,7 +29,7 @@ public sealed class TacticalDetonation : ClosureCard
             .ToList();
         foreach (var point in points)
         {
-            await CreatureCmd.Damage(choiceContext, cardPlay.Target!, base.DynamicVars["Damage"].BaseValue, ValueProp.Move, this);
+            await ClosureAttackUtils.Attack(choiceContext, cardPlay.Target!, base.DynamicVars["Damage"].BaseValue, this, point);
             await CreatureCmd.Kill(point, true);
         }
     }
