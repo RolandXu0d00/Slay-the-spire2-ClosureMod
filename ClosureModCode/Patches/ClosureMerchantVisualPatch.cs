@@ -10,7 +10,7 @@ namespace ClosureMod.ClosureModCode.Patches;
 /// <summary>
 /// 商店原本通过 Character.MerchantAnimPath 创建原版 Spine 模型，且不会调用
 /// CharacterModel.CreateCustomVisuals。保留原节点供商店内部逻辑调用，但隐藏其
-/// 铁甲战士画面，并叠加可露希尔基建 Relax 循环动画。
+/// 铁甲战士画面，并叠加从基建 Relax 素材抠出的可露希尔循环动画。
 /// </summary>
 [HarmonyPatch]
 public static class ClosureMerchantVisualPatch
@@ -36,9 +36,12 @@ public static class ClosureMerchantVisualPatch
                 if (merchantCharacter.HasMeta(ClosureVisualMeta))
                     continue;
 
+                // 清除商店对角色节点施加的灰暗/半透明颜色，避免透明 PNG 进一步变淡。
                 merchantCharacter.Modulate = Colors.White;
                 merchantCharacter.SelfModulate = Colors.White;
 
+                // 不删除原 Spine 节点：商店之后仍会调用它播放 relaxed_loop 等动画。
+                // 仅把画面隐藏，可避免破坏原版商店逻辑。
                 foreach (CanvasItem child in merchantCharacter.GetChildren().OfType<CanvasItem>())
                 {
                     child.Visible = false;

@@ -1,4 +1,5 @@
 using ClosureMod.ClosureModCode.Monsters;
+using ClosureMod.ClosureModCode.Patches;
 using ClosureMod.ClosureModCode.Powers;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
@@ -37,6 +38,9 @@ public static class ClosureSummonUtils
         {
             pets.Remove(pet);
             pets.Insert(Math.Min(preferredSlot, pets.Count), pet);
+            // AddPet 触发的场景站位刷新早于上面的队列复位；复位后必须再刷新一次，
+            // 才能让视觉站位、回合末行动顺序和拦截优先级保持一致。
+            TacticalPointPositioning.RepositionCurrentRoom();
         }
         await CreatureCmd.SetMaxHp(pet, hp);
         await CreatureCmd.Heal(pet, hp, playAnim: false);

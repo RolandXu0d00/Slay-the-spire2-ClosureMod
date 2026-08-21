@@ -44,6 +44,14 @@ internal static class TacticalPointPositioning
             point.Position = ownerNode.Position + BaseOffset + Vector2.Right * (Spacing * index);
         }
     }
+
+    public static void RepositionCurrentRoom()
+    {
+        if (NCombatRoom.Instance != null)
+        {
+            Reposition(NCombatRoom.Instance.CreatureNodes.ToList());
+        }
+    }
 }
 
 /// <summary>战斗开始时按新站位摆放战术点。</summary>
