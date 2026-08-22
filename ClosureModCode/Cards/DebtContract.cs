@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class DebtContract : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Energy", 2m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Energy", 1m)];
 
     public DebtContract() : base(1, CardType.Power, CardRarity.Rare, TargetType.None)
     {

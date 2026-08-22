@@ -9,7 +9,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 
 public sealed class TacticalRedeploy : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("HP", 9m), new DynamicVar("Attack", 2m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("HP", 8m), new DynamicVar("Attack", 2m)];
     public TacticalRedeploy() : base(1, CardType.Skill, CardRarity.Uncommon, CustomTargetType.Pet) { }
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -22,7 +22,7 @@ public sealed class TacticalRedeploy : ClosureCard
 
     protected override void OnUpgrade()
     {
-        DynamicVars["HP"].UpgradeValueBy(3m);
+        DynamicVars["HP"].UpgradeValueBy(2m);
         DynamicVars["Attack"].UpgradeValueBy(1m);
     }
 }

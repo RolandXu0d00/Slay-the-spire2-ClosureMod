@@ -13,7 +13,7 @@ namespace ClosureMod.ClosureModCode.Utils;
 public static class ClosureSummonUtils
 {
     public const int MaxTacticalPoints = 3;
-    public const int DefaultHp = 8;
+    public const int DefaultHp = 6;
     public const int DefaultAttack = 2;
 
     private static readonly System.Reflection.FieldInfo PetsField =

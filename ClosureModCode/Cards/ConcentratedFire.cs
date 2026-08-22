@@ -18,6 +18,8 @@ public sealed class ConcentratedFire : ClosureCard
     {
     }
 
+    protected override int CanonicalEnergyCost => IsUpgraded ? 1 : 2;
+
     protected override bool IsPlayable => Owner.PlayerCombatState != null &&
         Owner.PlayerCombatState.Pets.Any(p => p.Monster is TacticalPoint && p.IsAlive);
 
@@ -26,8 +28,4 @@ public sealed class ConcentratedFire : ClosureCard
         await PowerCmd.Apply<ConcentratedFirePower>(choiceContext, Owner.Creature, base.DynamicVars["Attacks"].BaseValue, Owner.Creature, this);
     }
 
-    protected override void OnUpgrade()
-    {
-        base.DynamicVars["Attacks"].UpgradeValueBy(1m);
-    }
 }

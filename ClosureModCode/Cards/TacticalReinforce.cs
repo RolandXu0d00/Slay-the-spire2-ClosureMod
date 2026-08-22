@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class TacticalReinforce : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("HP", 6m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("HP", 5m)];
 
     public TacticalReinforce() : base(1, CardType.Skill, CardRarity.Common, CustomTargetType.Pet)
     {
@@ -27,6 +27,6 @@ public sealed class TacticalReinforce : ClosureCard
 
     protected override void OnUpgrade()
     {
-        base.DynamicVars["HP"].UpgradeValueBy(3m);
+        base.DynamicVars["HP"].UpgradeValueBy(2m);
     }
 }

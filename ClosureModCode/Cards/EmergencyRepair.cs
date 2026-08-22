@@ -11,7 +11,7 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class EmergencyRepair : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Heal", 8m)];
+    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Heal", 6m)];
 
     public EmergencyRepair() : base(1, CardType.Skill, CardRarity.Common, CustomTargetType.Pet)
     {

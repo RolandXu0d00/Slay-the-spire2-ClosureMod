@@ -16,7 +16,7 @@ public sealed class EmergencyRecall : ClosureCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         if (cardPlay.Target == null) return;
-        decimal block = Math.Ceiling(cardPlay.Target.CurrentHp / 2m) + DynamicVars["Bonus"].BaseValue;
+        decimal block = cardPlay.Target.CurrentHp + DynamicVars["Bonus"].BaseValue;
         await CreatureCmd.GainBlock(Owner.Creature, block, ValueProp.Move, cardPlay, false);
         await CreatureCmd.Kill(cardPlay.Target, true);
     }

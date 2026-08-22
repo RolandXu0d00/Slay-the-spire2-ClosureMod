@@ -13,7 +13,7 @@ public sealed class EnergyOverload : ClosureCard
 {
     protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Limit", 1m)];
 
-    public EnergyOverload() : base(1, CardType.Power, CardRarity.Rare, TargetType.None)
+    public EnergyOverload() : base(2, CardType.Power, CardRarity.Rare, TargetType.None)
     {
     }
 

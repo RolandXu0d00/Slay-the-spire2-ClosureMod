@@ -10,7 +10,8 @@ namespace ClosureMod.ClosureModCode.Cards;
 /// </summary>
 public sealed class DoubleDeploy : ClosureCard
 {
-    protected override List<DynamicVar> CanonicalVars => [new DynamicVar("HP", ClosureSummonUtils.DefaultHp)];
+    protected override List<DynamicVar> CanonicalVars =>
+        [new DynamicVar("HP", 6m), new DynamicVar("Attack", 1m)];
 
     public DoubleDeploy() : base(1, CardType.Skill, CardRarity.Rare, TargetType.None)
     {
@@ -19,12 +20,14 @@ public sealed class DoubleDeploy : ClosureCard
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay cardPlay)
     {
         int hp = (int)base.DynamicVars["HP"].BaseValue;
-        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, hp, ClosureSummonUtils.DefaultAttack, this);
-        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, hp, ClosureSummonUtils.DefaultAttack, this);
+        int attack = (int)base.DynamicVars["Attack"].BaseValue;
+        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, hp, attack, this);
+        await ClosureSummonUtils.SummonTacticalPoint(choiceContext, Owner, hp, attack, this);
     }
 
     protected override void OnUpgrade()
     {
         base.DynamicVars["HP"].UpgradeValueBy(2m);
+        base.DynamicVars["Attack"].UpgradeValueBy(1m);
     }
 }

@@ -8,13 +8,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace ClosureMod.ClosureModCode.Cards;
 
 /// <summary>
-/// 弹幕：造成伤害，场上每个战术点再造成少量伤害。
+/// 弹幕：对所有敌人造成随战术点数量成长的伤害。
 /// </summary>
 public sealed class Barrage : ClosureCard
 {
     protected override List<DynamicVar> CanonicalVars => [new DynamicVar("Damage", 7m), new DynamicVar("PerPoint", 2m)];
 
-    public Barrage() : base(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+    public Barrage() : base(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
     {
     }
 
@@ -24,7 +24,7 @@ public sealed class Barrage : ClosureCard
     {
         decimal dmg = base.DynamicVars["Damage"].BaseValue
             + ClosureSummonUtils.AliveTacticalPointCount(Owner) * base.DynamicVars["PerPoint"].BaseValue;
-        await ClosureAttackUtils.Attack(choiceContext, cardPlay.Target!, dmg, this);
+        await ClosureAttackUtils.AttackAll(choiceContext, dmg, this);
     }
 
     protected override void OnUpgrade()
